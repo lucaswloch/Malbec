@@ -5,11 +5,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "inspect": "node --inspect node_modules/next/dist/bin/next dev"
   },
   "dependencies": {
-    "next": "10.2.3",
+    "@zeit/next-sass": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "fs": "0.0.1-security",
+    "next": "^10.0.5",
+    "node-sass": "^6.0.0",
+    "path": "^0.12.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "webpack": "^4.44.1"
   }
 }
