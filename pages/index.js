@@ -1,6 +1,6 @@
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ShowProduct, Layout, Preview } from '../components'
 
 
@@ -8,8 +8,21 @@ import { ShowProduct, Layout, Preview } from '../components'
 const Carta = () => {
 
   const [detail, setDetail] = useState();
+  const [platos, setPlatos] = useState();
+  const [filter, setFilter] = useState('todos');
 
+  /// la variable filter podra ser todos, carnes, pescados, entrantes y servira para seleccionar un array u otro de platos
 
+  useEffect(() => {
+    Promise.all([findMenu(filter)
+      .then(menu => {
+        console.dir(menu)
+        setPlatos(menu)
+      })
+      .catch(error => setError(error))
+    ])
+
+  }, [filter])
 
   return <Layout>
     <main className="carta">
